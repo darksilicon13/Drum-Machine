@@ -31,24 +31,27 @@ class Drum extends Component {
         // console.log(this.state.volume);
     }
 
-
-
-    componentDidMount() {
-        document.addEventListener('keydown', (event) => {
-            
-        })
+    handleClick = (padnum, id) => {
+        if (this.state.power) {
+            let sound = document.getElementById(padnum);
+            sound.volume = this.state.volume/100;
+            sound.play();
+            this.handleDisplay(id);
+            setTimeout(() => {this.handleDisplay('');}, "1000")
+        }
     }
+
 
     render() {
         // console.log(this.state.pads);
         return (
             // User Story #1: I should be able to see an outer container with a corresponding id="drum-machine" that contains all other elements.
             <div id="drum-machine">
-                <Pads power={this.state.power} sounds={this.state.sounds[this.state.bank]} volume={this.state.volume} 
-                onDisplay={this.handleDisplay} />
+                <Pads power={this.state.power} sounds={this.state.sounds[this.state.bank]} volume={this.state.volume}
+                    onDisplay={this.handleDisplay} onPress={this.handleClick}/>
                 <Control power={this.state.power} bank={this.state.bank} display={this.state.display}
-                 volume={this.state.volume} onPower={this.handlePower} onBank={this.handleBank} 
-                 onVolume={this.handleVolume} onDisplay={this.handleDisplay} />
+                    volume={this.state.volume} onPower={this.handlePower} onBank={this.handleBank}
+                    onVolume={this.handleVolume} onDisplay={this.handleDisplay}/>
             </div>
         );
     }
