@@ -1,0 +1,50 @@
+.control {
+    box-sizing: border-box;
+    height: 100%;
+    width:400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.power, .bank , label{
+    font-weight: bold;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+#display {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: bold;
+    width: 70%;
+    height: 50px;
+    margin: 20px auto;
+    background: repeating-linear-gradient(60deg, blue 30%, #3333ff 30%, #3333ff 31%, blue 31%, blue 50%);
+}
+
+#volume {
+    width: 70%;
+}
+
+.switch {
+    display: flex;
+    width: 40px;
+    height: 20px;
+    margin: 0 auto 10px;
+    margin-top: -10px;
+    padding: 2px;
+    background-color: black;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.lever {
+    width: 15px;
+    height: 15px;
+    margin:0;
+    background-color: blue;
+}
+

@@ -1,0 +1,11 @@
+.drum-pads {
+    box-sizing: border-box;
+    height: 100%;
+    width: 500px;
+    padding: 50px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    column-gap: 10px;
+    row-gap: 10px;
+}
