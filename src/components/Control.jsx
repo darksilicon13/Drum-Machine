@@ -42,6 +42,7 @@ class Control extends Component {
                     </div>
                 </div>
                 {/* User Story #2: Within #drum-machine I can see an element with a corresponding id="display". */}
+                {/* User Story #7: When a .drum-pad is triggered, a string describing the associated audio clip is displayed as the inner text of the #display element (each string must be unique). */}
                 <div id="display">{this.props.display}</div>
                 <div>
                     <label htmlFor="volume">Volume</label><br />
