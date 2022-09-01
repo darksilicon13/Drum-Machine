@@ -1,15 +1,23 @@
 import React from 'react';
-import './Pads.css'
+import { useSelector } from 'react-redux';
 import Pad from './Pad';
+import './Pads.css'
 
 const Pads = () => {
-    return ( 
+
+    const pads = useSelector(state => state.drum.sounds);
+
+    console.log(pads);
+
+    const renderPads = pads.map(pad => (
+        <Pad key={pad.alphakey} {...pad} />
+    ))
+
+    return (
         <div className='drum-pads'>
-                {this.props.sounds.map(sounds => 
-                <Pad key={sounds.pad} power={this.props.power} padnum={sounds.pad} id={sounds.name}
-                src={sounds.src} volume={this.props.volume} onDisplay={this.props.onDisplay} onPress={this.props.onPress}/>)}
-            </div>
-     );
+            {renderPads}
+        </div>
+    );
 }
- 
+
 export default Pads;
