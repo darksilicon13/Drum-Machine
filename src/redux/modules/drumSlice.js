@@ -5,7 +5,7 @@ import sounds from '../../sounds/sources'
 const initialState = {
     power: false,
     bank: false,
-    dislay: '',
+    display: '',
     volume: 50,
     sounds: [],
 }
@@ -28,7 +28,11 @@ const drumSlice = createSlice({
             state.volume = action.payload;
         },
         setDisplay: (state, action) => {
-            state.dislay = action.payload;
+            state.display = action.payload;
+        },
+        toggleBank: state => {
+            state.bank = !state.bank;
+            state.sounds = state.bank ? [...sounds[1]] : [...sounds[0]];
         },
         pressPad: (state, action) => {
 
@@ -36,6 +40,6 @@ const drumSlice = createSlice({
     }
 })
 
-export const {loadSounds, togglePower, changeVolume, setDisplay, pressPad} = drumSlice.actions;
+export const {loadSounds, togglePower, toggleBank, changeVolume, setDisplay, pressPad} = drumSlice.actions;
 
 export default drumSlice.reducer;
