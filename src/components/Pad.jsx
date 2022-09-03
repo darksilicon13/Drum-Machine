@@ -1,21 +1,16 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import './Pad.css';
-import {setDisplay} from '../redux/modules/drumSlice'
+import {pressPad, setDisplay} from '../redux/modules/drumSlice'
 
 const Pad = ({alphakey, name, src}) => {
     const dispatch = useDispatch();
 
-    const {power, volume} = useSelector(state=>state.drum);
+    const power = useSelector(state=>state.drum.power);
 
     const onPadClick = () => {
-        if(!power) {
-            return;
-        }
-        const audio = new Audio(document.getElementById(alphakey).src);
-        audio.volume = volume/100;
-        audio.play();
-        
+        if(!power) return;
+        dispatch(pressPad(src))
         dispatch(setDisplay(name));
         setTimeout(()=>{dispatch(setDisplay(''))},2000);
     }

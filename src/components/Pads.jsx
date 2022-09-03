@@ -7,8 +7,6 @@ const Pads = () => {
 
     const pads = useSelector(state => state.drum.sounds);
 
-    console.log(pads);
-
     const renderPads = pads.map(pad => (
         <Pad key={pad.alphakey} {...pad} />
     ))

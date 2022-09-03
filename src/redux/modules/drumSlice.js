@@ -35,7 +35,12 @@ const drumSlice = createSlice({
             state.sounds = state.bank ? [...sounds[1]] : [...sounds[0]];
         },
         pressPad: (state, action) => {
-
+            if(!state.power) {
+                return;
+            }
+            const audio = new Audio(action.payload);
+            audio.volume = state.volume/100;
+            audio.play();
         }
     }
 })
